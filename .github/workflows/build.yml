@@ -1,55 +1,12 @@
-name: Build Metabase Jar
+name: Test workflow
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   workflow_dispatch:
 
 jobs:
-  build:
+  test-job:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Set up Java
-        uses: actions/setup-java@v3
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-
-      - name: Set up Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
-      - name: Set up Clojure
-        uses: DeLaGuardo/setup-clojure@master
-        with:
-          lein: '2.9.8'
-
-      - name: Cache dependencies
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.m2
-            ~/.npm
-            ~/.yarn
-          key: ${{ runner.os }}-deps-${{ hashFiles('**/project.clj') }}
-
-      - name: Install frontend deps
-        run: |
-          yarn install --frozen-lockfile
-
-      - name: Build Metabase
-        run: |
-          export MB_EDITION=oss
-          ./bin/build
-
-      - name: Upload Jar
-        uses: actions/upload-artifact@v3
-        with:
-          name: metabase.jar
-          path: ./metabase.jar
-
+      - run: echo "Hello from GitHub Actions!"
