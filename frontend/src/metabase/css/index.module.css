@@ -1,3 +1,23 @@
+
+:root {
+  /* Couleurs principales */
+  --brand-primary: #f56b00;
+  --brand-secondary: #004e89;
+  --brand-success: #28a745;
+  --brand-danger: #dc3545;
+  --brand-warning: #ffc107;
+
+  /* Fond et texte */
+  --background-color: #121a26;
+  --background-secondary: #1e2936;
+  --text-color: #f0f0f0;
+
+  /* Bordures et contrastes */
+  --border-color: #2f3b4a;
+  --hover-color: #f56b00aa;
+}
+
+
 @import "./components/form.module.css";
 @import "./components/list.module.css";
 @import "./components/modal.module.css";
